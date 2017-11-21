@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package robo;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  *
@@ -136,11 +138,9 @@ public class RoboBody extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void somaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_somaButtonMouseClicked
-        double n1, n2;
-        n1 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 1: "));
-        n2 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 2: "));
         try{
-            JOptionPane.showMessageDialog(null, "O resultado é: " + String.valueOf(bobby.operacional(n1, n2, "+")));
+            //JOptionPane.showMessageDialog(null, "O resultado é "+String.valueOf(bobby.operacional("+"))+"!", "Resultado", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
+            bobby.operacional("+");
         }
         catch(Exception e){
             System.out.println(e);
@@ -148,11 +148,8 @@ public class RoboBody extends javax.swing.JFrame {
     }//GEN-LAST:event_somaButtonMouseClicked
 
     private void subtrairButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subtrairButtonMouseClicked
-        double n1, n2;
-        n1 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 1: "));
-        n2 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 2: "));
         try{
-            JOptionPane.showMessageDialog(null, "O resultado é: " + String.valueOf(bobby.operacional(n1, n2, "-")));
+            bobby.operacional("-");
         }
         catch(Exception e){
             System.out.println(e);
@@ -160,11 +157,8 @@ public class RoboBody extends javax.swing.JFrame {
     }//GEN-LAST:event_subtrairButtonMouseClicked
 
     private void multiplicaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiplicaButtonMouseClicked
-        double n1, n2;
-        n1 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 1: "));
-        n2 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 2: "));
         try{
-            JOptionPane.showMessageDialog(null, "O resultado é: " + String.valueOf(bobby.operacional(n1, n2, "*")));
+            bobby.operacional("*");
         }
         catch(Exception e){
             System.out.println(e);
@@ -172,11 +166,8 @@ public class RoboBody extends javax.swing.JFrame {
     }//GEN-LAST:event_multiplicaButtonMouseClicked
 
     private void divisaoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisaoButtonMouseClicked
-        double n1, n2;
-        n1 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 1: "));
-        n2 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 2: "));
         try{
-            JOptionPane.showMessageDialog(null, "O resultado é: " + String.valueOf(bobby.operacional(n1, n2, "/")));
+            bobby.operacional("/");
         }
         catch(Exception e){
             System.out.println(e);

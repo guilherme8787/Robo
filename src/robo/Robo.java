@@ -4,13 +4,16 @@
  * and open the template in the editor.
  */
 package robo;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+    
 /**
  *
  * @author Orion
  */
 public class Robo {    
-        
+    public Icon roboIcon = new ImageIcon("C:\\Users\\Orion\\Documents\\GitHub\\Robo\\img\\roboIcon.png");
     private String Nome, DataFabricacao;
     private double Bateria;
 
@@ -44,8 +47,11 @@ public class Robo {
             this.Bateria = Bateria;
     }
 
-    public double operacional(double n1, double n2, String operador) throws Exception{
+    public void operacional(String operador) throws Exception{
         double result = 0;
+        double n1, n2;
+        n1 = Double.parseDouble((String) JOptionPane.showInputDialog(null, "Entre com o valor 1: ", "Insira o valor para o calculo", JOptionPane.QUESTION_MESSAGE, roboIcon, null, null));
+        n2 = Double.parseDouble((String) JOptionPane.showInputDialog(null, "Entre com o valor 2: ", "Insira o valor para o calculo", JOptionPane.QUESTION_MESSAGE, roboIcon, null, null));
         switch(operador){
             case "+": result = n1 + n2;
             break;
@@ -58,6 +64,6 @@ public class Robo {
             default:
                 JOptionPane.showMessageDialog(null, "Omae wa mou shindeiru?");
         }
-        return result;
+        JOptionPane.showMessageDialog(null, "O resultado é "+result+"!", "Resultado", JOptionPane.INFORMATION_MESSAGE, roboIcon);
     }
 }
