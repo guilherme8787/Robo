@@ -48,6 +48,8 @@ public class Robo {
     }
 
     public void operacional(String operador) throws Exception{
+        if (Bateria < 0)
+                throw new Exception("Bateria fraca");
         double result = 0;
         double n1, n2;
         n1 = Double.parseDouble((String) JOptionPane.showInputDialog(null, "Entre com o valor 1: ", "Insira o valor para o calculo", JOptionPane.QUESTION_MESSAGE, roboIcon, null, null));
