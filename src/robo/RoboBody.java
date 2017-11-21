@@ -4,13 +4,13 @@
  * and open the template in the editor.
  */
 package robo;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author Orion
  */
 public class RoboBody extends javax.swing.JFrame {
-
+    Robo bobby = new Robo("Bobby", "20/20/2020", 10.0);
     /**
      * Creates new form RoboBody
      */
@@ -38,21 +38,45 @@ public class RoboBody extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(520, 520));
         setResizable(false);
 
-        roboPanel.setMaximumSize(new java.awt.Dimension(500, 500));
+        roboPanel.setMaximumSize(new java.awt.Dimension(504, 504));
         roboPanel.setMinimumSize(new java.awt.Dimension(500, 500));
         roboPanel.setPreferredSize(new java.awt.Dimension(500, 500));
 
         subtrairButton.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         subtrairButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/robo/menosButton.jpg"))); // NOI18N
+        subtrairButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        subtrairButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                subtrairButtonMouseClicked(evt);
+            }
+        });
 
         somaButton.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         somaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/robo/maisButton.jpg"))); // NOI18N
+        somaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        somaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                somaButtonMouseClicked(evt);
+            }
+        });
 
         multiplicaButton.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         multiplicaButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/robo/vezesButton.jpg"))); // NOI18N
+        multiplicaButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        multiplicaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                multiplicaButtonMouseClicked(evt);
+            }
+        });
 
         divisaoButton.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         divisaoButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/robo/dividirButton.jpg"))); // NOI18N
+        divisaoButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        divisaoButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                divisaoButtonMouseClicked(evt);
+            }
+        });
 
         roboLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/robo/RoboBody.png"))); // NOI18N
 
@@ -61,8 +85,8 @@ public class RoboBody extends javax.swing.JFrame {
         roboPanelLayout.setHorizontalGroup(
             roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roboPanelLayout.createSequentialGroup()
-                .addGap(210, 210, 210)
-                .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(208, 208, 208)
+                .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addGroup(roboPanelLayout.createSequentialGroup()
                         .addComponent(somaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -71,16 +95,17 @@ public class RoboBody extends javax.swing.JFrame {
                         .addComponent(multiplicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(divisaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
             .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(roboPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(roboLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 544, Short.MAX_VALUE)))
+                    .addComponent(roboLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 490, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         roboPanelLayout.setVerticalGroup(
             roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, roboPanelLayout.createSequentialGroup()
-                .addContainerGap(206, Short.MAX_VALUE)
+            .addGroup(roboPanelLayout.createSequentialGroup()
+                .addGap(197, 197, 197)
                 .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(somaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(subtrairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -88,11 +113,12 @@ public class RoboBody extends javax.swing.JFrame {
                 .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(multiplicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(divisaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(203, 203, 203))
+                .addContainerGap(201, Short.MAX_VALUE))
             .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(roboPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(roboLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)))
+                    .addComponent(roboLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 489, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -109,6 +135,53 @@ public class RoboBody extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void somaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_somaButtonMouseClicked
+        double n1, n2;
+        n1 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 1: "));
+        n2 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 2: "));
+        try{
+            JOptionPane.showMessageDialog(null, "O resultado é: " + String.valueOf(bobby.operacional(n1, n2, "+")));
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_somaButtonMouseClicked
+
+    private void subtrairButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subtrairButtonMouseClicked
+        double n1, n2;
+        n1 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 1: "));
+        n2 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 2: "));
+        try{
+            JOptionPane.showMessageDialog(null, "O resultado é: " + String.valueOf(bobby.operacional(n1, n2, "-")));
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_subtrairButtonMouseClicked
+
+    private void multiplicaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiplicaButtonMouseClicked
+        double n1, n2;
+        n1 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 1: "));
+        n2 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 2: "));
+        try{
+            JOptionPane.showMessageDialog(null, "O resultado é: " + String.valueOf(bobby.operacional(n1, n2, "*")));
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_multiplicaButtonMouseClicked
+
+    private void divisaoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisaoButtonMouseClicked
+        double n1, n2;
+        n1 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 1: "));
+        n2 = Double.parseDouble(JOptionPane.showInputDialog("Entre com o valor 2: "));
+        try{
+            JOptionPane.showMessageDialog(null, "O resultado é: " + String.valueOf(bobby.operacional(n1, n2, "/")));
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_divisaoButtonMouseClicked
     /**
      * @param args the command line arguments
      */
@@ -143,7 +216,6 @@ public class RoboBody extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton divisaoButton;
     private javax.swing.JButton multiplicaButton;

@@ -40,7 +40,7 @@
     <Container class="javax.swing.JPanel" name="roboPanel">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[500, 500]"/>
+          <Dimension value="[504, 504]"/>
         </Property>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[500, 500]"/>
@@ -54,33 +54,34 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="2" attributes="0">
+                      <Group type="102" alignment="2" attributes="0">
                           <Component id="somaButton" min="-2" pref="48" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="subtrairButton" min="-2" pref="48" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
+                      <Group type="102" alignment="2" attributes="0">
                           <Component id="multiplicaButton" min="-2" pref="48" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="divisaoButton" min="-2" pref="48" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="198" max="32767" attributes="0"/>
+                  <EmptySpace pref="190" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="roboLabel" pref="544" max="32767" attributes="0"/>
+                      <Component id="roboLabel" pref="490" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="206" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="somaButton" min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="subtrairButton" min="-2" pref="48" max="-2" attributes="0"/>
@@ -90,12 +91,13 @@
                       <Component id="multiplicaButton" min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="divisaoButton" min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="203" max="-2" attributes="0"/>
+                  <EmptySpace pref="201" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="roboLabel" pref="511" max="32767" attributes="0"/>
+                      <Component id="roboLabel" pref="489" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -110,7 +112,13 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/robo/menosButton.jpg"/>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="subtrairButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="somaButton">
           <Properties>
@@ -120,7 +128,13 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/robo/maisButton.jpg"/>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="somaButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="multiplicaButton">
           <Properties>
@@ -130,7 +144,13 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/robo/vezesButton.jpg"/>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="multiplicaButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="divisaoButton">
           <Properties>
@@ -140,7 +160,13 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/robo/dividirButton.jpg"/>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor em Forma de M&#xe3;o"/>
+            </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="divisaoButtonMouseClicked"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="roboLabel">
           <Properties>
