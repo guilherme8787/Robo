@@ -53,21 +53,40 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="2" attributes="0">
-                      <Group type="102" alignment="2" attributes="0">
-                          <Component id="somaButton" min="-2" pref="48" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="subtrairButton" min="-2" pref="48" max="-2" attributes="0"/>
+                          <Component id="stbateriaLabel" pref="233" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="2" attributes="0">
-                          <Component id="multiplicaButton" min="-2" pref="48" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="208" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="2" attributes="0">
+                                      <Group type="102" alignment="2" attributes="0">
+                                          <Component id="somaButton" min="-2" pref="48" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="subtrairButton" min="-2" pref="48" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="2" attributes="0">
+                                          <Component id="multiplicaButton" min="-2" pref="48" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="divisaoButton" min="-2" pref="48" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="36" pref="36" max="-2" attributes="0"/>
+                                  <Component id="carregarBateriaButton" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="divisaoButton" min="-2" pref="48" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="190" max="32767" attributes="0"/>
+                  <EmptySpace pref="185" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -81,7 +100,14 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                  <Component id="carregarBateriaButton" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="stbateriaLabel" max="32767" attributes="0"/>
+                      <Component id="jLabel1" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="somaButton" min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="subtrairButton" min="-2" pref="48" max="-2" attributes="0"/>
@@ -91,7 +117,7 @@
                       <Component id="multiplicaButton" min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="divisaoButton" min="-2" pref="48" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="201" max="32767" attributes="0"/>
+                  <EmptySpace pref="205" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -167,6 +193,25 @@
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="divisaoButtonMouseClicked"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JToggleButton" name="carregarBateriaButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Carregar Bateria"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="carregarBateriaButtonMouseClicked"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="stbateriaLabel">
+          <Events>
+            <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="stbateriaLabelInputMethodTextChanged"/>
+            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="stbateriaLabelPropertyChange"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Bateria"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="roboLabel">
           <Properties>

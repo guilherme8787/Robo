@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package robo;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -34,6 +37,9 @@ public class RoboBody extends javax.swing.JFrame {
         somaButton = new javax.swing.JButton();
         multiplicaButton = new javax.swing.JButton();
         divisaoButton = new javax.swing.JButton();
+        carregarBateriaButton = new javax.swing.JToggleButton();
+        stbateriaLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         roboLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,6 +86,28 @@ public class RoboBody extends javax.swing.JFrame {
             }
         });
 
+        carregarBateriaButton.setText("Carregar Bateria");
+        carregarBateriaButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                carregarBateriaButtonMouseClicked(evt);
+            }
+        });
+
+        stbateriaLabel.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                stbateriaLabelInputMethodTextChanged(evt);
+            }
+        });
+        stbateriaLabel.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                stbateriaLabelPropertyChange(evt);
+            }
+        });
+
+        jLabel1.setText("Bateria");
+
         roboLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/robo/RoboBody.png"))); // NOI18N
 
         javax.swing.GroupLayout roboPanelLayout = new javax.swing.GroupLayout(roboPanel);
@@ -87,17 +115,30 @@ public class RoboBody extends javax.swing.JFrame {
         roboPanelLayout.setHorizontalGroup(
             roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roboPanelLayout.createSequentialGroup()
-                .addGap(208, 208, 208)
-                .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(roboPanelLayout.createSequentialGroup()
-                        .addComponent(somaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(subtrairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(stbateriaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
                     .addGroup(roboPanelLayout.createSequentialGroup()
-                        .addComponent(multiplicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(divisaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(190, Short.MAX_VALUE))
+                        .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(roboPanelLayout.createSequentialGroup()
+                                .addGap(208, 208, 208)
+                                .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addGroup(roboPanelLayout.createSequentialGroup()
+                                        .addComponent(somaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(subtrairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(roboPanelLayout.createSequentialGroup()
+                                        .addComponent(multiplicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(divisaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(roboPanelLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(carregarBateriaButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addContainerGap(185, Short.MAX_VALUE))
             .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(roboPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -107,7 +148,13 @@ public class RoboBody extends javax.swing.JFrame {
         roboPanelLayout.setVerticalGroup(
             roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(roboPanelLayout.createSequentialGroup()
-                .addGap(197, 197, 197)
+                .addGap(74, 74, 74)
+                .addComponent(carregarBateriaButton)
+                .addGap(4, 4, 4)
+                .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(stbateriaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(78, 78, 78)
                 .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(somaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(subtrairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -115,7 +162,7 @@ public class RoboBody extends javax.swing.JFrame {
                 .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(multiplicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(divisaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
             .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(roboPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -141,38 +188,69 @@ public class RoboBody extends javax.swing.JFrame {
         try{
             //JOptionPane.showMessageDialog(null, "O resultado é "+String.valueOf(bobby.operacional("+"))+"!", "Resultado", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
             bobby.operacional("+");
+            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
         }
         catch(Exception e){
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "Erro", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
         }
     }//GEN-LAST:event_somaButtonMouseClicked
 
     private void subtrairButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subtrairButtonMouseClicked
         try{
             bobby.operacional("-");
+            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
         }
         catch(Exception e){
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "Erro", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
         }
     }//GEN-LAST:event_subtrairButtonMouseClicked
 
     private void multiplicaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiplicaButtonMouseClicked
         try{
             bobby.operacional("*");
+            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
         }
         catch(Exception e){
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "Erro", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
         }
     }//GEN-LAST:event_multiplicaButtonMouseClicked
 
     private void divisaoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisaoButtonMouseClicked
         try{
             bobby.operacional("/");
+            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
         }
         catch(Exception e){
-            System.out.println(e);
+            JOptionPane.showMessageDialog(null, e, "Erro", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
         }
     }//GEN-LAST:event_divisaoButtonMouseClicked
+
+    private void carregarBateriaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_carregarBateriaButtonMouseClicked
+        double bateria;
+        try {
+            bateria = Double.parseDouble((String) JOptionPane.showInputDialog(null, "Entre com a bateria ", "Carregar Bateria", JOptionPane.QUESTION_MESSAGE, bobby.roboIcon, null, null));
+            bobby.setBateria(bateria);
+            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+        } catch (Exception ex) {
+            Logger.getLogger(RoboBody.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_carregarBateriaButtonMouseClicked
+
+    private void stbateriaLabelInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_stbateriaLabelInputMethodTextChanged
+        try {
+            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+        } catch (Exception ex) {
+            Logger.getLogger(RoboBody.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_stbateriaLabelInputMethodTextChanged
+
+    private void stbateriaLabelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_stbateriaLabelPropertyChange
+        try {
+            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+        } catch (Exception ex) {
+            Logger.getLogger(RoboBody.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_stbateriaLabelPropertyChange
     /**
      * @param args the command line arguments
      */
@@ -208,11 +286,14 @@ public class RoboBody extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton carregarBateriaButton;
     private javax.swing.JButton divisaoButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton multiplicaButton;
     private javax.swing.JLabel roboLabel;
     private javax.swing.JPanel roboPanel;
     private javax.swing.JButton somaButton;
+    private javax.swing.JLabel stbateriaLabel;
     private javax.swing.JButton subtrairButton;
     // End of variables declaration//GEN-END:variables
 }
