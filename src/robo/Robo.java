@@ -19,23 +19,29 @@ import java.util.logging.Logger;
  *
  * @author Orion
  */
-public class Robo {    
+public class Robo{    
     public Icon roboIcon = new ImageIcon("C:\\Users\\Guilherme\\Documents\\GitHub\\Robo\\img\\roboIcon.png");
     private File arquivo = new File("C:\\Users\\Guilherme\\Documents\\GitHub\\Robo\\files\\bateria.txt");
     private String Nome, DataFabricacao;
-    private double Bateria;
-
-    public Robo(String Nome, String DataFabricacao, double Bateria) {
+    Bateria robobateria;
+    
+    public Robo(String Nome, String DataFabricacao, double bateria){
         this.Nome = Nome;
         this.DataFabricacao = DataFabricacao;
         try {
-            setBateria(Bateria);
-            this.Bateria = Bateria;
+            robobateria = new Bateria(bateria);
         } catch (Exception ex) {
             Logger.getLogger(Robo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    /*try {
+    setBateria(Bateria);
+    this.Bateria = Bateria;
+    } catch (Exception ex) {
+    Logger.getLogger(Robo.class.getName()).log(Level.SEVERE, null, ex);
+    }*/
+    
     public String getNome() {
             return Nome;
     }
@@ -52,29 +58,8 @@ public class Robo {
         this.DataFabricacao = DataFabricacao;
     }
 
-    public double getBateria() throws IOException{
-        FileReader fr = new FileReader(arquivo);
-        BufferedReader br = new BufferedReader(fr);
-        double Bateria = Double.parseDouble(br.readLine());
-        this.Bateria = Bateria;
-        return Bateria;
-    }
-
-    public void setBateria(double Bateria) throws IOException, Exception {
-        //para adicionar uma novar linha é só colocar (arquivo, true)
-            FileWriter fw = new FileWriter(arquivo);
-            BufferedWriter bw = new BufferedWriter(fw);
-            if(arquivo.exists() == false){
-                arquivo.createNewFile();
-            }
-            bw.write(String.valueOf(Bateria + this.Bateria));  
-            bw.flush();  
-            bw.close();
-            fw.close();
-    }
-
     public void operacional(String operador) throws Exception{
-        if (getBateria() == 0){
+        if (robobateria.getBateria() == 0){
             throw new Exception("Bateria fraca");
         }
         else 
@@ -95,8 +80,8 @@ public class Robo {
                 default: JOptionPane.showMessageDialog(null, "Omae wa mou shindeiru?");
             }
             JOptionPane.showMessageDialog(null, "O resultado é "+result+"!", "Resultado", JOptionPane.INFORMATION_MESSAGE, roboIcon);
-            this.Bateria -= 1;
-            setBateria(0);
+            robobateria.Bateria -= 1;
+            robobateria.setBateria(0);
         }
     }
 }

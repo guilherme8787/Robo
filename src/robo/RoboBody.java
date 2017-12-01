@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package robo;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.io.IOException;
+import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -15,7 +18,11 @@ import javax.swing.JOptionPane;
  * @author Orion
  */
 public class RoboBody extends javax.swing.JFrame {
-    Robo bobby = new Robo("Bobby", "20/20/2020", 10.0);
+    public Robo bobby = new Robo("Bobby", "20/20/2020", 10.0);
+    public Bateria bat = bobby.robobateria;
+    private String nomerobo = "Olá eu sou o " + bobby.getNome();
+    private URL url = this.getClass().getResource("/robo/roboIcon.png");  
+    private Image iconeRobo = Toolkit.getDefaultToolkit().getImage(url);
     /**
      * Creates new form RoboBody
      */
@@ -43,6 +50,8 @@ public class RoboBody extends javax.swing.JFrame {
         roboLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle(nomerobo);
+        setIconImage(iconeRobo);
         setPreferredSize(new java.awt.Dimension(520, 520));
         setResizable(false);
 
@@ -120,25 +129,22 @@ public class RoboBody extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(stbateriaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
+                        .addComponent(stbateriaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 323, Short.MAX_VALUE))
                     .addGroup(roboPanelLayout.createSequentialGroup()
-                        .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(208, 208, 208)
+                        .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                             .addGroup(roboPanelLayout.createSequentialGroup()
-                                .addGap(208, 208, 208)
-                                .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                    .addGroup(roboPanelLayout.createSequentialGroup()
-                                        .addComponent(somaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(subtrairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(roboPanelLayout.createSequentialGroup()
-                                        .addComponent(multiplicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(divisaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(somaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(subtrairButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(roboPanelLayout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(carregarBateriaButton)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addContainerGap(185, Short.MAX_VALUE))
+                                .addComponent(multiplicaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(divisaoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(roboPanelLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(carregarBateriaButton)))
+                .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(roboPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(roboPanelLayout.createSequentialGroup()
                     .addContainerGap()
@@ -188,7 +194,7 @@ public class RoboBody extends javax.swing.JFrame {
         try{
             //JOptionPane.showMessageDialog(null, "O resultado é "+String.valueOf(bobby.operacional("+"))+"!", "Resultado", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
             bobby.operacional("+");
-            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+            stbateriaLabel.setText(String.valueOf(bat.getBateria()));
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e, "Erro", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
@@ -198,7 +204,7 @@ public class RoboBody extends javax.swing.JFrame {
     private void subtrairButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_subtrairButtonMouseClicked
         try{
             bobby.operacional("-");
-            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+            stbateriaLabel.setText(String.valueOf(bat.getBateria()));
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e, "Erro", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
@@ -208,7 +214,7 @@ public class RoboBody extends javax.swing.JFrame {
     private void multiplicaButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiplicaButtonMouseClicked
         try{
             bobby.operacional("*");
-            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+            stbateriaLabel.setText(String.valueOf(bat.getBateria()));
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e, "Erro", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
@@ -218,7 +224,7 @@ public class RoboBody extends javax.swing.JFrame {
     private void divisaoButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_divisaoButtonMouseClicked
         try{
             bobby.operacional("/");
-            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+            stbateriaLabel.setText(String.valueOf(bat.getBateria()));
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e, "Erro", JOptionPane.INFORMATION_MESSAGE, bobby.roboIcon);
@@ -229,8 +235,8 @@ public class RoboBody extends javax.swing.JFrame {
         double bateria;
         try {
             bateria = Double.parseDouble((String) JOptionPane.showInputDialog(null, "Entre com a bateria ", "Carregar Bateria", JOptionPane.QUESTION_MESSAGE, bobby.roboIcon, null, null));
-            bobby.setBateria(bateria);
-            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+            bat.setBateria(bateria);
+            stbateriaLabel.setText(String.valueOf(bat.getBateria()));
         } catch (Exception ex) {
             Logger.getLogger(RoboBody.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -238,7 +244,7 @@ public class RoboBody extends javax.swing.JFrame {
 
     private void stbateriaLabelInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_stbateriaLabelInputMethodTextChanged
         try {
-            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+            stbateriaLabel.setText(String.valueOf(bat.getBateria()));
         } catch (Exception ex) {
             Logger.getLogger(RoboBody.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -246,7 +252,7 @@ public class RoboBody extends javax.swing.JFrame {
 
     private void stbateriaLabelPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_stbateriaLabelPropertyChange
         try {
-            stbateriaLabel.setText(String.valueOf(bobby.getBateria()));
+            stbateriaLabel.setText(String.valueOf(bat.getBateria()));
         } catch (Exception ex) {
             Logger.getLogger(RoboBody.class.getName()).log(Level.SEVERE, null, ex);
         }
